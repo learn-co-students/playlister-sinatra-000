@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head></head>
+  <body>
+    <form action=<%= "/editted/#{@song.slug}" %> method="POST">
+      <h1><%= @song.name %></h1>
+      <h5>New Genre:</h5>
+      <% Genre.all.each do |genre|%>
+        <label for=<%= "#{genre.slug}" %>><%= genre.name %></label>
+        <input type="checkbox" name="<%= genre.name %>" id=<%= "#{genre.slug}" %>><br>
+      <% end %>
+      <br>
+      New Artist?: <input name="Artist Name" value="<%= @song.artist.name %>"><br>
+      <br>
+      <input type="submit" id="submit" value="Save" />
+  </body>
+</html>

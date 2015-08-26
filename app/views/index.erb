@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= @class %></title>
+  </head>
+  <body>
+    <h1><%= @class %></h1>
+    <% @items.each do |item| %>
+    <a href=<%= "/#{@class.downcase}/#{item.slug}" %>><%= item.name %></a><br>
+    <% end %>
+  </body>
+</html>

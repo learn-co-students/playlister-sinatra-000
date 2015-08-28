@@ -9,12 +9,13 @@ describe "Artist" do
   let!(:pop) { Genre.create(:name => "Pop") }
   let!(:funk) { Genre.create(:name => "Funk") }
 
-  let!(:blank_pop) { SongGenre.create(:song_id => blank_space.id, :genre_id => pop.id) }
-  let!(:blank_funk) { SongGenre.create(:song_id => blank_space.id, :genre_id => funk.id) }
+  let!(:blank_pop) { SongsGenre.create(:song_id => blank_space.id, :genre_id => pop.id) }
+  let!(:blank_funk) { SongsGenre.create(:song_id => blank_space.id, :genre_id => funk.id) }
 
 
   it "can be initialized" do
     expect(artist).to be_an_instance_of(Artist)
+
   end
 
   it "can have a name" do
@@ -22,6 +23,7 @@ describe "Artist" do
   end
 
   it "has many songs" do
+    # binding.pry
     expect(artist.songs.count).to eq(2)
   end
 

@@ -16,8 +16,8 @@ describe "Song Forms" do
     context "without an existing artist" do
       it "creates a new song and a new artist and associates them" do
         fill_in "Name", with: song_name
-        check "New Age Garbage"
-        fill_in "Artist Name", with: artist_name
+        check "NewAgeGarbage"
+        fill_in "ArtistName", with: artist_name
         click_on "Create"
 
         expect(page).to have_content(song_name)
@@ -34,8 +34,8 @@ describe "Song Forms" do
 
       it "creates a new song and associates it with an existing artist" do
         fill_in "Name", with: song_name
-        check "Hippity Hop"
-        fill_in "Artist Name", with: artist_name
+        check "HippityHop"
+        fill_in "ArtistName", with: artist_name
         click_on "Create"
 
         expect(page).to have_content(song_name)
@@ -51,7 +51,7 @@ describe "Song Forms" do
       @song = Song.create(name: song_name)
       artist = Artist.create(name: artist_name)
 
-      @song.song_genres.create(genre: genre_1)
+      @song.songs_genres.create(genre: genre_1)
       @song.artist = artist
 
       @song.save
@@ -65,7 +65,7 @@ describe "Song Forms" do
       end
 
       it "updates the song's artist" do
-        fill_in "Artist Name", with: "Some Nobody"
+        fill_in "ArtistName", with: "Some Nobody"
         click_on "Save"
 
         expect(page).to have_content("Song successfully updated.")
@@ -80,10 +80,10 @@ describe "Song Forms" do
       end
 
       it "updates the song's genres" do
-        uncheck "New Age Garbage"
-        check "Hippity Hop"
+        uncheck "NewAgeGarbage"
+        check "HippityHop"
         click_on "Save"
-
+        sleep(1)
         expect(page).to have_content("Song successfully updated.")
         expect(page).to have_content(song_name)
         expect(page).to have_content(artist_name)

@@ -8,8 +8,8 @@ describe "Song" do
   let!(:pop) { Genre.create(:name => "Pop") }
   let!(:funk) { Genre.create(:name => "Funk") }
 
-  let!(:song_genres_pop) { SongGenre.create(:song_id => song.id, :genre_id => pop.id) }
-  let!(:song_genres_funk) { SongGenre.create(:song_id => song.id, :genre_id => funk.id) }
+  let!(:song_genres_pop) { SongsGenre.create(:song_id => song.id, :genre_id => pop.id) }
+  let!(:song_genres_funk) { SongsGenre.create(:song_id => song.id, :genre_id => funk.id) }
 
   it "can initialize a song" do
     expect(Song.new).to be_an_instance_of(Song)
@@ -20,7 +20,7 @@ describe "Song" do
   end
 
   it "can have many genres" do 
-    expect(SongGenre.count).to eq(2)
+    expect(SongsGenre.count).to eq(2)
   end
 
   it "has an artist" do

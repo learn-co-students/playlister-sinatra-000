@@ -9,8 +9,8 @@ describe "Genre" do
   let!(:blank_space) { Song.create(:name => "Blank Space", :artist => taylor_swift) }
   let!(:uptown_funk) { Song.create(:name => "Uptown Funk!", :artist => mark_ronson) }
 
-  let!(:blank_pop) { SongGenre.create(:song_id => blank_space.id, :genre_id => genre.id) }
-  let!(:uptown_pop) { SongGenre.create(:song_id => uptown_funk.id, :genre_id => genre.id) }
+  let!(:blank_pop) { SongsGenre.create(:song_id => blank_space.id, :genre_id => genre.id) }
+  let!(:uptown_pop) { SongsGenre.create(:song_id => uptown_funk.id, :genre_id => genre.id) }
 
 
   it "can initialize a genre" do

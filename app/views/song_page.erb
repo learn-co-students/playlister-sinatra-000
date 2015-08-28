@@ -1,0 +1,9 @@
+<ul>
+  <li><%= @song3.name %></li>
+  <a href="/artists/<%=@song3.artist.slug%>"><li><%= @song3.artist.name %></li></a>
+  <%s_id = @song3.id%>
+  <%genre = SongsGenre.where(song_id: s_id).to_a%>
+  <%genre_num = genre[0].genre_id%>
+  <%name = Genre.where(id: genre_num)%>
+  <a href="/genres/<%=name[0].slug%>"><li><%= name[0].name %></li></a>
+</ul>

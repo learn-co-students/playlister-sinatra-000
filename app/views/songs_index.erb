@@ -1,0 +1,4 @@
+<a href='/songs/new'>Create a new song</a><br><br>
+<% Song.all.each do |song| %>
+<a href=<%= "/songs/#{song.slug}" %>><%= song.name %></a><br>
+<% end %>

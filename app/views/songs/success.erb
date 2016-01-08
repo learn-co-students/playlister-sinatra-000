@@ -1,0 +1,8 @@
+Successfully created song. And/or! Song successfully updated.  ###peeped the solutiong. got to learn about this patch business.
+<h1><%= @song.name %></h1>
+<ul>
+  <li><a href="/artists/<%= @artist.slug %>"><%= @artist.name %></a></li>
+  <% @genres.each do |genre| %>
+  <li><a href="/genres/<%= genre.slug %>"><%= genre.name %></a></li>
+  <% end %>
+</ul>
